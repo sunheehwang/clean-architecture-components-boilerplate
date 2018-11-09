@@ -8,7 +8,7 @@ android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
 
     compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
-    buildToolsVersion globalConfiguration["androidBuildToolsVersion"]
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         minSdkVersion globalConfiguration["androidMinSdkVersion"]
@@ -77,7 +77,7 @@ dependencies {
     implementation mobileUiDependencies.androidAnnotations
     implementation mobileUiDependencies.androidSupportV4
     implementation mobileUiDependencies.androidSupportV13
-    implementation mobileUiDependencies.appCompatV7
+    //implementation mobileUiDependencies.appCompatV7
     implementation mobileUiDependencies.supportRecyclerView
     implementation mobileUiDependencies.supportDesign
     implementation mobileUiDependencies.timber
@@ -88,7 +88,7 @@ dependencies {
 
     compile presentationDependencies.archRuntime
     compile presentationDependencies.archExtensions
-    compile "android.arch.persistence.room:rxjava2:1.0.0-alpha9-1"
+    compile "android.arch.persistence.room:rxjava2:1.1.1"
     kapt presentationDependencies.archCompiler
 
     testImplementation mobileUiTestDependencies.kotlinJUnit
@@ -115,7 +115,7 @@ dependencies {
     }
     androidTestImplementation(mobileUiTestDependencies.espressoContrib) {
         exclude module: 'appcompat'
-        exclude module: 'appcompat-v7'
+        //exclude module: 'appcompat-v7'
         exclude module: 'support-v4'
         exclude module: 'support-v13'
         exclude module: 'support-annotations'
