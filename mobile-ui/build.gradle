@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'jacoco-android'
+//apply plugin: 'jacoco-android'
 
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
@@ -77,18 +77,20 @@ dependencies {
     implementation mobileUiDependencies.androidAnnotations
     implementation mobileUiDependencies.androidSupportV4
     implementation mobileUiDependencies.androidSupportV13
-    //implementation mobileUiDependencies.appCompatV7
+    implementation mobileUiDependencies.appCompatV7
     implementation mobileUiDependencies.supportRecyclerView
     implementation mobileUiDependencies.supportDesign
+    implementation mobileUiDependencies.supportCoreUi
+    implementation mobileUiDependencies.supportCoreUtils
     implementation mobileUiDependencies.timber
     implementation mobileUiDependencies.rxAndroid
     implementation mobileUiDependencies.glide
     implementation mobileUiDependencies.dagger
     implementation mobileUiDependencies.daggerSupport
 
-    compile presentationDependencies.archRuntime
-    compile presentationDependencies.archExtensions
-    compile "android.arch.persistence.room:rxjava2:1.1.1"
+    implementation presentationDependencies.archRuntime
+    implementation presentationDependencies.archExtensions
+    implementation "android.arch.persistence.room:rxjava2:1.1.1"
     kapt presentationDependencies.archCompiler
 
     testImplementation mobileUiTestDependencies.kotlinJUnit
@@ -116,6 +118,7 @@ dependencies {
     androidTestImplementation(mobileUiTestDependencies.espressoContrib) {
         exclude module: 'appcompat'
         //exclude module: 'appcompat-v7'
+       // exclude module: 'support-core-utils'
         exclude module: 'support-v4'
         exclude module: 'support-v13'
         exclude module: 'support-annotations'

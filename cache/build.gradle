@@ -6,7 +6,7 @@ android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
 
     compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
-    buildToolsVersion '28.0.3'
+    buildToolsVersion globalConfiguration["androidBuildToolsVersion"]
 
     defaultConfig {
         minSdkVersion globalConfiguration["androidMinSdkVersion"]
